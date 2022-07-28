@@ -1,0 +1,12 @@
+[package]
+name = "txh"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { version = "1.0.58", default-features = false, features = [ "std" ] }
+csv = { version = "1.1.6", default-features = false }
+rust_decimal = "1.25.0"
+rust_decimal_macros = "1.25.0"
+serde = { version = "1.0.140", default-features = false, features = [ "derive", "std"] }
+thiserror = { version = "1.0.31", default-features = false }
