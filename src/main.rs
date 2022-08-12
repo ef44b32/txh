@@ -31,12 +31,13 @@ fn main() -> Result<()> {
         return Ok(());
     }
     let filename = &args[1];
-    let file = File::open(filename).context(format!("Failed to read CSV from `{filename}`."))?;
+    let file = File::open(filename).context(format!("Failed to open CSV: `{filename}`."))?;
 
     let mut state = State::new();
 
     // Read from CSV file
-    let mut rdr = csv::ReaderBuilder::new().has_headers(false).from_reader(file);
+    let mut rdr = csv::ReaderBuilder::new().has_headers(true).from_reader(file);
+
     for record in rdr.deserialize() {
         let record: EventCsvRecord = record?;
         let event = Event::try_from(record)?;
