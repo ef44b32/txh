@@ -14,6 +14,7 @@ pub enum Error {
 /// Row format of an event in the input CSV file.
 #[derive(Clone, Debug, PartialEq, serde::Deserialize)]
 pub struct EventCsvRecord {
+    #[serde(rename = "type")]
     pub ty: String,
     pub client: ClientId,
     pub tx: TxId,
